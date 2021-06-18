@@ -14,7 +14,6 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import model.Player;
 
 /**
  * Taking suits, ranks and deck has a String
