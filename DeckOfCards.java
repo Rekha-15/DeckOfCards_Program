@@ -154,12 +154,12 @@ public class DeckOfCards {
 		DeckOfCards deckCards = new DeckOfCards();
 		deckCards.uniqueCards();
 		DeckOfCards.playersTeam();
-		// for (int i = 0; i < deck.length; i++) { // printing all cards
-		// System.out.println(deck[i]);
-		// }
-		DeckOfCards.cardDistribute();
+		for (int i = 0; i < deck.length; i++) { // printing all cards
+		      System.out.println(deck[i]);
+		 }
 		DeckOfCards.sequenceAdding();
 		DeckOfCards.shuffleCardsDeck(deck);
+		DeckOfCards.cardDistribute();
 
 	}
 
