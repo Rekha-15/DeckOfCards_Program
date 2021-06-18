@@ -19,6 +19,8 @@ public class Player {
 	public int getSequenceNumber() {
 		return sequenceAdding;
 	}
+	
+	
 
 	public void setSequenceNumber(int sequenceAdding) {
 		this.sequenceAdding = sequenceAdding;
