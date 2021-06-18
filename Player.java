@@ -14,6 +14,15 @@ package com;
  */
 public class Player {
 	String playerName;
+	int sequenceAdding;
+
+	public int getSequenceNumber() {
+		return sequenceAdding;
+	}
+
+	public void setSequenceNumber(int sequenceAdding) {
+		this.sequenceAdding = sequenceAdding;
+	}
 
 	public String toString() {
 		return "Player [playerName=" + playerName + "]";

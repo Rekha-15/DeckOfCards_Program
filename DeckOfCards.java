@@ -1,6 +1,6 @@
 /******************************************************************************
- * Purpose : Implementing Deck Of Cards Game. In this UC2 , Creating the playerTeam class 
- * to add the player from console.
+ * Purpose : Implementing Deck Of Cards Game. In this , Creating Players order and 
+ * how they should receive the cards to further order for play
  * @author Rekha
  * @Version 1.0
  * @Since 17-06-2021
@@ -17,17 +17,20 @@ import java.util.Set;
 
 /**
  * Taking suits, ranks and deck has a String
- * 
+ * Created local variable for numberOfPlayers
  * @author rekha
  *
  */
+
 
 public class DeckOfCards {
 
 	private String[] suits = new String[] { "CLUB", "DIAMOND", "HEART", "SPADE" };
 	private String[] ranks = new String[] { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 	private static String[] deck = new String[52];
-	
+	private static  ArrayList<Player> createTeam = new ArrayList<>();
+	static int numberOfPlayers;
+	private static Scanner sc = new Scanner(System.in);
 
 	/**
 	 * uniqueCards is a method of private type uniqueCards method created to creates
@@ -65,16 +68,32 @@ public class DeckOfCards {
 		System.out.println("Enter the total number of players ");
 		int numberOfPlayers = sc.nextInt();
 
-		if (numberOfPlayers > 2 && numberOfPlayers <= 4) {
+		if (numberOfPlayers >= 2 && numberOfPlayers <= 4) {
 			Scanner sc1 = new Scanner(System.in);
 			for (int i = 1; i <= numberOfPlayers; i++) {
 				System.out.println("Enter player " + i + " name");
 				String name = sc1.nextLine();
 				Player playerNames = new Player(name);
+				createTeam.add(playerNames);
 			}
 		} else {
 			System.out.println("Minimum 2 players and maximum 4 player count should be there");
 			playersTeam();
+		}
+	}
+	
+	/**
+	 * 
+	 * creating sequenceAdding method in static void type
+	 * Created for Players order and how they should receive the cards to further order for play
+	 * 
+	 */
+ 
+	private static void sequenceAdding () {
+		System.out.println("Enter players order");
+		for (int i = 0; i < numberOfPlayers; i++) {
+			int order = sc.nextInt();
+			createTeam.get(i).setSequenceNumber(order);
 		}
 	}
 
@@ -82,13 +101,19 @@ public class DeckOfCards {
 	 * Main method of public type
 	 * In Main method Created object to call uniqueCards function
 	 * calling playersTeam function
+	 * calling sequenceAdding function
+	 * using for loop printing all cards
 	 */
 
 	public static void main(String[] args) {
 		DeckOfCards deckCards = new DeckOfCards();
 		deckCards.uniqueCards();
 		DeckOfCards.playersTeam();
-
+		for (int i = 0; i < deck.length; i++) { // printing all cards
+			System.out.println(deck[i]);
+		}
+		DeckOfCards.sequenceAdding ();
 	}
 
 }
+
